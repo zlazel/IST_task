@@ -24,9 +24,8 @@ namespace IST_Task.Validation
             // Birthdate Validations
             RuleFor(x => x.NID).NotEmpty().WithMessage("*Required")
                 .Length(4, 20).WithMessage("Minimum Length Is 4 Digits And Maximum Length Is 10 Digits")
-                .Matches("\\d")
-                .WithMessage("Only Digits are Allowed")
-                .OverridePropertyName("National ID");
+                .Matches("\\d+")
+                .WithMessage("Only Digits are Allowed");
 
             // Birthdate Validations
             RuleFor(x => x.Birthdate)
