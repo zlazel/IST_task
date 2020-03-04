@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation.Mvc;
+using IST_Task.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,8 +16,16 @@ namespace IST_Task
         {
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            ValidationConfiguration();  
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        private void ValidationConfiguration()  
+        {  
+            FluentValidationModelValidatorProvider.Configure(provider =>  
+            {  
+                provider.ValidatorFactory = new ValidatorFactory();  
+            });  
+        } 
     }
 }

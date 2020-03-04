@@ -10,7 +10,7 @@ namespace IST_Task.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index","Students");
         }
 
         public ActionResult About()
